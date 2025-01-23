@@ -9,28 +9,31 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0e1f3d, #2c3e50);
+            background:  #0e1f3d;
             color: #fff;
+            
+           
         }
         header {
-            background-color: #0e1f3d;
+            background:  #0e1f3d;
             color: white;
-            padding: 20px 0;
+            padding: 40px 0;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         header img {
-            max-width: 145px;
+            max-width: 130px;
             position: absolute;
             top: 10px;
             left: 20px;
             animation: rotateLogo 4s infinite linear;
         }
         header h1 {
-            display: inline-block;
+            font-size: 3em;
+            letter-spacing: 0.1em;
             opacity: 0;
             animation: fadeInText 3s forwards;
-            letter-spacing: 0.1em;
         }
         header h1 span {
             display: inline-block;
@@ -38,20 +41,27 @@
             animation: fadeInLetter 3s forwards;
             animation-delay: calc(0.1s * var(--i));
         }
-
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+            animation-delay: 1.5s;
+        }
         nav {
             display: flex;
             justify-content: center;
-            background-color: #00c4cc;
-            padding: 10px 0;
-            animation: slideDown 1s;
+            background: #00c4cc;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1.5s;
         }
-
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             margin: 0 15px;
+            font-size: 1.2em;
             transition: transform 0.3s, color 0.3s;
         }
         nav a:hover {
@@ -59,57 +69,75 @@
             transform: scale(1.1);
             color: #ffcc00;
         }
-
         section {
-            padding: 20px;
-            animation: fadeIn 1.5s;
+            padding: 40px;
+            text-align: center;
+            animation: fadeIn 2s;
+            font-size: 16px;
         }
-
         .section-title {
+            font-size: 2em;
             color: #ffcc00;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+            
         }
-
-        footer {
-            background-color: #00c4cc;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ffcc00;
+            margin: 10px auto 0;
+            font-size: 30px;
+        }
+       footer {
+        background-color: #00c4cc;
             color: white;
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
             animation: fadeIn 2s;
         }
-
         .contact {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #d6e4f5;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
             animation: zoomIn 1s;
         }
-
         ul {
             list-style-type: disc;
-            margin: 10px 0 20px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+            line-height: 1.8;
+            animation: slideUp 1.5s;
         }
-
         table {
-            width: 100%;
+            width: 90%;
+            margin: 20px auto;
             border-collapse: collapse;
-            margin: 20px 0;
-            animation: fadeIn 1.5s;
+            animation: fadeIn 2s;
         }
-
         table th, table td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: center;
         }
-
         table th {
             background-color: #00c4cc;
             color: white;
+            text-transform: uppercase;
         }
-
-        /* Animations */
+        table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -118,10 +146,9 @@
                 opacity: 1;
             }
         }
-
         @keyframes slideDown {
             from {
-                transform: translateY(-20px);
+                transform: translateY(-30px);
                 opacity: 0;
             }
             to {
@@ -129,10 +156,19 @@
                 opacity: 1;
             }
         }
-
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
         @keyframes zoomIn {
             from {
-                transform: scale(0.9);
+                transform: scale(0.8);
                 opacity: 0;
             }
             to {
@@ -140,8 +176,15 @@
                 opacity: 1;
             }
         }
-
-        @keyframes spin {
+        @keyframes backgroundGlow {
+            0% {
+                background: linear-gradient(135deg, #0e1f3d, #2c3e50);
+            }
+            100% {
+                background: linear-gradient(135deg, #0e1f3d, #2c3e50);
+            }
+        }
+        @keyframes rotateLogo {
             from {
                 transform: rotate(0deg);
             }
@@ -149,41 +192,6 @@
                 transform: rotate(360deg);
             }
         }
-
-        @keyframes backgroundGlow {
-            0% {
-                background: linear-gradient(135deg, #0e1f3d, #2c3e50);
-            }
-            100% {
-                background: linear-gradient(135deg, #1a3b6b, #3a5c7f);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header img {
-                max-width: 100px;
-                top: 5px;
-                left: 10px;
-            }
-            header h1{
-                font-size:20px;
-                text-align: right;
-                letter-spacing: 1px;
-
-            }
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav a {
-                margin: 5px 0;
-            }
-            table th, table td {
-                font-size: 14px;
-                padding: 6px;
-            }
-        }
-
         @keyframes fadeInText {
             from {
                 opacity: 0;
@@ -192,7 +200,6 @@
                 opacity: 1;
             }
         }
-
         @keyframes fadeInLetter {
             from {
                 opacity: 0;
@@ -201,13 +208,28 @@
                 opacity: 1;
             }
         }
-
-        @keyframes rotateLogo {
-            from {
-                transform: rotate(0deg);
+        @media (max-width: 768px) {
+            header img {
+                max-width: 80px;
             }
-            to {
-                transform: rotate(360deg);
+            header h1 {
+                font-size: 1.8em;
+                letter-spacing: 0px;
+                
+                margin-left: 100px;
+            }
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+            .section-title {
+                font-size: 1.5em;
+            }
+            table th, table td {
+                font-size: 0.9em;
             }
         }
     </style>
@@ -242,30 +264,28 @@
         <p>Votre partenaire fiable pour la maintenance logicielle et les solutions informatiques</p>
     </header>
     <nav>
-        <a href="#introduction">Introduction</a>
+        <a href="#introduction">A propos</a>
         <a href="#services">Nos Services</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#avantages">Avantages</a>
         <a href="#contact">Contact</a>
     </nav>
-
     <section id="introduction">
+        <h2 class="section-title">A propos</h2>
         <p>Chez MK Tech, nous nous engageons à fournir des solutions rapides, efficaces et abordables pour vos besoins logiciels et informatiques. Avec une expertise dans la maintenance logicielle, nous garantissons des services de qualité adaptés à vos besoins spécifiques. Que ce soit pour un particulier ou une entreprise, nous sommes là pour optimiser vos outils numériques.</p>
     </section>
-
     <section id="services">
         <h2 class="section-title">Nos Offres de Services</h2>
         <ul>
-            <li><strong><i>Diagnostic et conseil</strong></i> : Identification rapide des problèmes avec des conseils gratuits pour toute intervention.</li><br>
-            <li><strong><i>Maintenance logicielle</strong></i> : Mise à jour, installation de logiciels, optimisation des performances, sécurité logicielle et plus encore.</li><br>
-            <li><strong><i>Installation de jeux sur PC</strong></i> : Configuration optimale pour jeux légers ou lourds.</li><br>
-            <li><strong><i>Maintenance ponctuelle et préventive</strong></i> : Interventions ponctuelles et plans de maintenance pour éviter les pannes.</li><br>
-            <li><strong><i>Interventions d’urgence</strong></i> : Résolution rapide des pannes sur site ou à distance.</li><br>
-            <li><strong><i>Sauvegarde et récupération de données</strong></i> : Sauvegarde sécurisée et récupération de données perdues.</li><br>
-            <li><strong><i>Formation et assistance</strong></i> : Sessions pratiques pour améliorer vos compétences informatiques.</li><br>
+            <li><strong>Diagnostic et conseil :</strong> Identification rapide des problèmes avec des conseils gratuits pour toute intervention.</li><br>
+            <li><strong>Maintenance logicielle :</strong> Mise à jour, installation de logiciels, optimisation des performances, sécurité logicielle et plus encore.</li><br>
+            <li><strong>Installation de jeux sur PC :</strong> Configuration optimale pour jeux légers ou lourds.</li><br>
+            <li><strong>Maintenance ponctuelle et préventive :</strong> Interventions ponctuelles et plans de maintenance pour éviter les pannes.</li><br>
+            <li><strong>Interventions d’urgence :</strong> Résolution rapide des pannes sur site ou à distance.</li><br>
+            <li><strong>Sauvegarde et récupération de données :</strong> Sauvegarde sécurisée et récupération de données perdues.</li><br>
+            <li><strong>Formation et assistance :</strong> Sessions pratiques pour améliorer vos compétences informatiques.</li><br>
         </ul>
     </section>
-
     <section id="tarifs">
         <h2 class="section-title">Nos Tarifs</h2>
         <table>
@@ -277,7 +297,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Diagnostic rapide </td>
+                    <td>Diagnostic rapide</td>
                     <td>3 000</td>
                 </tr>
                 <tr>
@@ -285,13 +305,17 @@
                     <td>5 000</td>
                 </tr>
                 <tr>
-                    <td>Installation de logiciels</td>
-                    <td>5 000 - 7 000</td>
+                    <td>Installation de logiciels (systèmes d'exploitation,offices,applications divers)</td>
+                    <td>5 000 - 10 000</td>
                 </tr>
                 <tr>
                     <td>Installation de jeux sur PC</td>
-                    <td>1000 - 6000</td>
+                    <td>1 000 - 6 000</td>
                 </tr>
+                <tr>
+                    <td>Installation d'anti-virus (kaspersky, smavdav,avast...)</td>
+                    <td>2000-7000</td>
+
                 <tr>
                     <td>Maintenance préventive mensuelle</td>
                     <td>15 000</td>
@@ -304,40 +328,35 @@
                     <td>Formation de base sur logiciels</td>
                     <td>15 000</td>
                 </tr>
+                <tr>
+                    <td>Formation en creation de site web</td>
+                    <td>10 000</td>
+                    <tr>
+                        <td>Formation en bureautique</td>
+                        <td>15 000</td>
+                    </tr>
+                </tr>
             </tbody>
         </table>
     </section>
-
-    <section id="special">
-        <h2 class="section-title">Offres spéciales</h2>
-        <ul>
-            <li><strong>Pack Entreprise : 30 000fcfa/mois (maintenance et assistance incluses)</strong></li><br>
-            <li><strong>Fidélité client : 30 % de réduction après 3 interventions et des gadgets offerts.</strong></li><br>
-        </ul>
-    </section>
-
     <section id="avantages">
         <h2 class="section-title">Pourquoi choisir MK Tech ?</h2>
-        <p>MK Tech se distingue par :</p>
         <ul>
-            <li>Des services abordables et adaptés à tous les budgets.</li><br>
-            <li>Une équipe experte et dévouée pour résoudre vos problèmes rapidement.</li><br>
-            <li>Une assistance personnalisée et des conseils gratuits avec chaque intervention.</li><br>
-            <li>Des solutions préventives pour garantir la longévité de vos systèmes.</li><br>
-            <li>Une disponibilité même en cas d’urgence pour vous assurer une tranquillité d’esprit.</li><br>
+            <li>Des services abordables et adaptés à tous les budgets.</li>
+            <li>Une équipe experte et dévouée pour résoudre vos problèmes rapidement.</li>
+            <li>Une assistance personnalisée et des conseils gratuits à chaque intervention.</li>
+            <li>Des solutions préventives pour garantir la longévité de vos systèmes.</li>
+            <li>Une disponibilité même en cas d’urgence pour vous assurer une tranquillité d’esprit.</li>
         </ul>
     </section>
-
     <section id="contact">
         <h2 class="section-title">Contactez-nous</h2>
         <div class="contact">
             <p><strong>Adresse :</strong> Bobo Dioulasso, Burkina Faso</p>
-            <p><strong>Téléphone :</strong> +226 65 91 42 99</p>
-            <p><strong>Email :<a style="color:white" href="#introduction"> MKtechbobo2025@gmail.com</a></strong></p>
-            <p>Vous avez une question ou besoin d’une assistance ? N’hésitez pas à nous écrire ou à nous appeler, nous sommes là pour vous !</p>
-        </div>
-    </section>
-
+            <p><strong>Téléphone :</strong> +226 65 91 42 99 // 50 42 30 30</p>
+            <p><strong>Email :</strong> <a style="color:white;text-decoration: underline" href="mailto:MKtechbobo2025@gmail.com">MKtechbobo2025@gmail.com </a></p>
+                <p>Vous avez une question ou besoin d’une assistance ? N’hésitez pas à nous écrire ou à nous appeler, nous sommes là pour vous !</p>
+                </section>
     <footer>
         <p>&copy; 2025 MK Tech Votre expert en maintenance logicielle</p>
     </footer>
